@@ -101,6 +101,7 @@ include 'cpsInclude/head.inc';
 				<option value="TANF">TANF letter</option>
 				<option value="SNAP">SNAP Letter</option>
 				<option value="Maine Care">Maine Care letter or phone call</option>
+				<option value="Foster Family Identification">Foster Family Identification</option>
 			</select>
 		</p>
 		<p>Maine Residency Verification:

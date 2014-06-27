@@ -8,6 +8,12 @@ include 'cpsInclude/httpsRedirect.inc';
 
 	else
 	{
+		$style ="
+		table tr td
+		{
+			padding-bottom: 20px;
+		}
+		";
 		$parentFirstName=$_GET['parentFirstName'];
 		$parentLastName=$_GET['parentLastName'];
 		include 'cpsInclude/head.inc';
@@ -45,11 +51,21 @@ include 'cpsInclude/httpsRedirect.inc';
 			{
 ?>
 				<table>
-					<thead><tr><th>Child<br/>Last Name</th><th>Child<br/>First Name</th><th>Parent<br/>First Name</th><th>Parent<br/>Last Name</th><th>Agency</th><th>Name of technician<br/> who submitted</th><th>Email of <br/> key contact</th><th>Date<br/>Distributed</th></tr></thead>
+					<thead><tr><th>Child<br/>Last Name</th><th>Child<br/>First Name</th><th>Child<br/>Birth Date</th><th>Seat<br/>Distributed</th><th>Parent<br/>First Name</th><th>Parent<br/>Last Name</th><th>Agency</th><th>Name of technician<br/> who submitted</th><th>Email of <br/> key contact</th><th>Date<br/>Distributed</th></tr></thead>
 	<?php
 				foreach($result as $results)
 				{
-					echo"<tr><td>".ucfirst($results['childLastName'])."</td><td>".ucfirst($results['childFirstName'])."</td><td>".ucfirst($results['parentFirstName'])."</td><td>".ucfirst($results['parentLastName'])."</td><td>".ucwords($results['agency'])."</td><td>".ucwords($results['technicianName'])."</td><td>".$results['email']."</td><td>".$results['dateSubmission']."</td></tr>";
+					if($result['carSeatManufacturerList']=='')
+					{
+						$carSeat = ucfirst(strtolower($results['carSeatManufacturer']))" ".ucfirst((strtolower($results['carSeatModelName']));
+
+					}
+					else
+					{
+						$carSeat = ucfirst(strtolower($result['carSeatManufacturerList']));
+					}
+
+					echo"<tr><td>".ucfirst($results['childLastName'])."</td><td>".ucfirst($results['childFirstName'])."</td><td>".$results['childDOB']."</td>$carSeat<td>".ucfirst($results['parentFirstName'])."</td><td>".ucfirst($results['parentLastName'])."</td><td>".ucwords($results['agency'])."</td><td>".ucwords($results['technicianName'])."</td><td>".$results['email']."</td><td>".$results['dateSubmission']."</td></tr>";
 				}
 	?>
 

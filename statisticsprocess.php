@@ -287,8 +287,8 @@ $showForm=false;
 					require_once 'cpsInclude/dbConnect.inc';
 					$query="SELECT COUNT(parentId) as parentCount FROM parentInfoTable WHERE (dateSubmission >= :startDate AND dateSubmission <= :endDate )";
 					$query2="SELECT COUNT(childId) as childCount  FROM childInfoTable JOIN parentInfoTable ON parentInfoTable.parentId=childInfoTable.parentId WHERE (dateSubmission >= :startDate AND dateSubmission <= :endDate)";
-					$finalQuery="SELECT COUNT(parentId) as parentCount,county FROM parentInfoTable WHERE dateSubmission >= :startDate AND dateSubmission <= :endDate GROUP BY county ORDER By county";
-					$finalQuery2="SELECT COUNT(childId) as childCount,county FROM childInfoTable JOIN parentInfoTable ON parentInfoTable.parentId=childInfoTable.parentId WHERE dateSubmission >= :startDate AND dateSubmission <= :endDate GROUP BY county ORDER BY county";
+					$finalQuery="SELECT COUNT(parentId) as parentCount,agencyFROM parentInfoTable WHERE dateSubmission >= :startDate AND dateSubmission <= :endDate GROUP BY agency ORDER By agency";
+					$finalQuery2="SELECT COUNT(childId) as childCount,parentInfoTable.agency FROM childInfoTable JOIN parentInfoTable ON parentInfoTable.parentId=childInfoTable.parentId WHERE dateSubmission >= :startDate AND dateSubmission <= :endDate GROUP BY agency ORDER BY agency";
 
 					switch($choice)
 					{
@@ -400,32 +400,16 @@ $showForm=false;
 				
 				if($choice=='final')
 				{
-						$county=array(
-							"Androscoggin",
-							"Aroostook",
-							"Cumberland",
-							"Franklin",
-							"Hancock",
-							"Kennebec",
-							"Knox",
-							"Lincoln",
-							"Oxford",
-							"Penobscot",
-							"Piscataquis",
-							"Sagadahoc",
-							"Somerset",
-							"Waldo",
-							"Washington",
-							"York");
-					foreach($county as $counties)
+					$agency =file_get_contents('distributionSites.txt');
+					foreach($agency as $agencies)
 					{
 						
 						
 						foreach($finalResultParent as $finalResultParents)
 						{
-							if($finalResultParents['county']==$counties)
+							if($finalResultParents['agency']==$agencies)
 							{
-								echo "<h3>".ucfirst($counties)." County</h3>";
+								echo "<h3>".ucwords($agencies)."</h3>";
 								echo"<p>Number of parent/guardian applicants: ".$finalResultParents['parentCount']."</p>";
 								break;	
 							}
@@ -433,7 +417,7 @@ $showForm=false;
 
 						foreach($finalResultChild as $finalResultChildren)
 						{
-							if($finalResultChildren['county']==$counties)
+							if($finalResultChildren['agency']==$agencies)
 							{
 								echo"<p>Number of seats distributed: ".$finalResultChildren['childCount']."</p>";
 								echo"<p>Number of children who received seats".$finalResultChildren['childCount']."</p>";

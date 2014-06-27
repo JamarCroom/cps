@@ -347,6 +347,7 @@ $script="
 				<option value="TANF" <?php if($incomeEligible=="tanf") echo "selected";?>>TANF letter</option>
 				<option value="SNAP" <?php if($incomeEligible=="snap") echo "selected";?>>SNAP Letter</option>
 				<option value="Maine Care" <?php if($incomeEligible=="maine care") echo "selected";?>>Maine Care letter or phone call</option>
+				<option value="Foster Family Identification">Foster Family Identification</option>
 			</select>
 		</p>
 		<p>Maine Residency Verification:
