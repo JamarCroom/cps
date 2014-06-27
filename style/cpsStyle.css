@@ -1,0 +1,171 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+table
+{
+	width: 70%;
+	margin: 60px auto;
+}
+
+fieldset
+{
+	margin: 15px auto 15px auto;
+	
+	height: auto;
+	background-color: #E2E2E2;	
+	border-radius: 4px;
+	padding: 10px 0 10px 5px;
+	-moz-box-shadow:    3px 1px 3px 4px rgb(95,95,95);
+  	-webkit-box-shadow: 3px 1px 3px 4px rgb(95,95,95);
+ 	 box-shadow:         2px 1px 2px 3px rgb(95,95,95);
+}
+
+
+
+
+.success
+{
+	color: blue;
+}
+
+thead
+{
+	color: white;
+	background-color: black;
+}
+th
+{
+	margin: 0;
+	padding: 0;
+}
+
+td
+{
+	text-align: center;
+}
+
+body,html
+{
+	width: 100%;
+	height: 100%;
+	
+	
+	font-family: 'Droid Sans', sans-serif;
+
+
+	background: #4F4F4F;
+	/* IE10 Consumer Preview */ 
+	background: -ms-linear-gradient(bottom, #4F4F4F 0%, #141414 100%) fixed;
+
+	/* Mozilla Firefox */ 
+	background: -moz-linear-gradient(bottom, #4F4F4F 0%, #141414 100%) fixed;
+
+	/* Opera */ 
+	background: -o-linear-gradient(bottom, #4F4F4F 0%, #141414 100%) fixed;
+
+	/* Webkit (Safari/Chrome 10) */ 
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #4F4F4F), color-stop(1, #141414)) fixed;
+
+	/* Webkit (Chrome 11+) */ 
+	background: -webkit-linear-gradient(bottom, #4F4F4F 0%, #141414 100%) fixed;
+
+	/* W3C Markup, IE10 Release Preview */ 
+	background: linear-gradient(to top, #4F4F4F 0%, #141414 100%) fixed;
+	
+}
+
+#wrapper
+{
+	margin: 0 auto;
+	padding: 10px 15px;
+	width :80%;
+	background-color: #cedce7;
+	border-radius: 5px;	
+	min-height: 100%;
+}
+#header
+{
+	margin: 10px 0;
+	background-color: #000066;
+	border-radius:5px;	
+	width: 100%;
+}
+
+#logoWording
+{
+	margin-left: 10px;
+	font-family: chunkfive,'Paytone One', sans-serif;
+	font-size: 1.45em;
+	color: white;
+}
+
+p
+{
+	margin: 15px 0;
+}
+.center
+{
+	text-align: center;
+}
+
+.error
+{
+	color: red;
+}
+ nav
+ {
+ 	width: 95%;
+ 	margin: 15px auto;
+ 	text-align: center;
+ 	height: 35px;
+ 	padding-top:  5px;
+ 	 background-color: #000066;
+ 	 border-radius: 5px;
+ }
+
+ nav ul li a
+ {
+ 	width: 100%;
+ 	height: 100%;
+ 	text-decoration: none;
+ 	font-weight: bold;
+ 	background-color: #000066;
+ 	color:white;
+ 	padding: 0;
+ 	margin-right: 15px;
+
+ 	font-size: 1.3em;
+
+ }
+
+ nav ul li a:active
+ {
+ 	color: #cedce7;
+ }
+  nav ul li a:hover
+ {
+ 	color: #cedce7;
+ }
+ nav ul
+ {
+ 	
+ 	padding: 0;
+ 	margin: 0;
+ 	list-style-type: none;
+
+ }
+ nav ul li
+ {
+ 	padding: 0;
+ 	margin: 0;
+  	display: inline;	
+ }
+
+ button
+ {
+
+
+ 	
+ }
