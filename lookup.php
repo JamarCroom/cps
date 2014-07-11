@@ -12,6 +12,7 @@ include 'cpsInclude/httpsRedirect.inc';
 		table tr td
 		{
 			padding-bottom: 20px;
+			padding-right: 5px;
 		}
 		";
 		$parentFirstName=$_GET['parentFirstName'];
@@ -57,7 +58,7 @@ include 'cpsInclude/httpsRedirect.inc';
 				{
 					if($result['carSeatManufacturerList']=='')
 					{
-						$carSeat = ucfirst(strtolower($results['carSeatManufacturer']))" ".ucfirst((strtolower($results['carSeatModelName']));
+						$carSeat = ucfirst(strtolower($results['carSeatManufacturer']))." ".ucfirst(strtolower($results['carSeatModelName']));
 
 					}
 					else
@@ -65,7 +66,7 @@ include 'cpsInclude/httpsRedirect.inc';
 						$carSeat = ucfirst(strtolower($result['carSeatManufacturerList']));
 					}
 
-					echo"<tr><td>".ucfirst($results['childLastName'])."</td><td>".ucfirst($results['childFirstName'])."</td><td>".$results['childDOB']."</td>$carSeat<td>".ucfirst($results['parentFirstName'])."</td><td>".ucfirst($results['parentLastName'])."</td><td>".ucwords($results['agency'])."</td><td>".ucwords($results['technicianName'])."</td><td>".$results['email']."</td><td>".$results['dateSubmission']."</td></tr>";
+					echo"<tr><td>".ucfirst($results['childLastName'])."</td><td>".ucfirst($results['childFirstName'])."</td><td>".$results['childDOB']."</td><td>".ucwords($carSeat)."</td><td>".ucfirst($results['parentFirstName'])."</td><td>".ucfirst($results['parentLastName'])."</td><td>".ucwords($results['agency'])."</td><td>".ucwords($results['technicianName'])."</td><td>".$results['email']."</td><td>".$results['dateSubmission']."</td></tr>";
 				}
 	?>
 

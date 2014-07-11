@@ -287,7 +287,7 @@ $showForm=false;
 					require_once 'cpsInclude/dbConnect.inc';
 					$query="SELECT COUNT(parentId) as parentCount FROM parentInfoTable WHERE (dateSubmission >= :startDate AND dateSubmission <= :endDate )";
 					$query2="SELECT COUNT(childId) as childCount  FROM childInfoTable JOIN parentInfoTable ON parentInfoTable.parentId=childInfoTable.parentId WHERE (dateSubmission >= :startDate AND dateSubmission <= :endDate)";
-					$finalQuery="SELECT COUNT(parentId) as parentCount,agencyFROM parentInfoTable WHERE dateSubmission >= :startDate AND dateSubmission <= :endDate GROUP BY agency ORDER By agency";
+					$finalQuery="SELECT COUNT(parentId) as parentCount, agency FROM parentInfoTable WHERE (dateSubmission >= :startDate AND dateSubmission <= :endDate) GROUP BY agency ORDER BY agency";
 					$finalQuery2="SELECT COUNT(childId) as childCount,parentInfoTable.agency FROM childInfoTable JOIN parentInfoTable ON parentInfoTable.parentId=childInfoTable.parentId WHERE dateSubmission >= :startDate AND dateSubmission <= :endDate GROUP BY agency ORDER BY agency";
 
 					switch($choice)
@@ -401,13 +401,16 @@ $showForm=false;
 				if($choice=='final')
 				{
 					$agency =file_get_contents('distributionSites.txt');
+					$agency = explode(',', $agency);
+					
 					foreach($agency as $agencies)
 					{
 						
-						
 						foreach($finalResultParent as $finalResultParents)
 						{
-							if($finalResultParents['agency']==$agencies)
+
+
+							if(trim(strtolower($finalResultParents['agency']))==trim(strtolower($agencies)))
 							{
 								echo "<h3>".ucwords($agencies)."</h3>";
 								echo"<p>Number of parent/guardian applicants: ".$finalResultParents['parentCount']."</p>";
@@ -417,10 +420,11 @@ $showForm=false;
 
 						foreach($finalResultChild as $finalResultChildren)
 						{
-							if($finalResultChildren['agency']==$agencies)
+							if(trim(strtolower($finalResultChildren['agency']))==trim(strtolower($agencies)))
 							{
 								echo"<p>Number of seats distributed: ".$finalResultChildren['childCount']."</p>";
-								echo"<p>Number of children who received seats".$finalResultChildren['childCount']."</p>";
+								echo"<p>Number of children who received seats: ".$finalResultChildren['childCount']."</p><br/><br/>";
+
 								break;
 							}	
 						}

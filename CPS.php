@@ -19,7 +19,7 @@ else
 			alert('Parent first and last name fields must be complete in order to lookup the parent.');
 		else
 		{
-			window.open('lookup.php?parentFirstName='+parentFname+'&parentLastName='+parentLname+'','','width=900,height=700, scrollbars=yes,resizable=yes');
+			window.open('lookup.php?lookup=trueparentFirstName='+parentFname+'&parentLastName='+parentLname+'','','width=1300,height=700, scrollbars=yes,resizable=yes');
 		}
 
 		return false;

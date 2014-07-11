@@ -32,16 +32,14 @@ else
 		  return rv;
 		}
 */		
-// Returns the version of Internet Explorer or a -1
-		// (indicating the use of another browser).
+
 		function pickerCompatible()
 
 		{
 	  	  var rv = true; // Return value assumes failure.
 		  if (navigator.appName == 'Microsoft Internet Explorer')
 		  {
-			  	rv=false;
-			 
+			  	rv=false; 
 		  }
 
 		  return rv;

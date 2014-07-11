@@ -6,11 +6,11 @@
 <head>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="../jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
 <link href='style/cpsStyle.css' rel='stylesheet' type='text/css'/>
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
-<link href='http://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="../jquery-ui-1.10.3.custom/css/overcast/jquery-ui-1.10.3.custom.css" />
+<link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
+<link href='https://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/overcast/jquery-ui-1.10.3.custom.css" />
 <style type="text/css">
 <?php
 if(isset($style))
@@ -87,7 +87,8 @@ $(function()
 <body>
 
 <div id="wrapper">
-	<div id="header"><img src="../pics/bhs_logo.jpg" id="logo" style="vertical-align: middle; border-radius: 5px;"/><span id="logoWording">Bureau of Highway Safety Web Applications Portal</span></div>
+	<div id="header"><img src="pics/bhs_logo.jpg" id="logo" style="vertical-align: middle; border-radius: 5px;"/><span id="logoWording">Bureau of Highway Safety Web Applications Portal</span></div>
 <?php
-	include 'cpsInclude/navbar.inc';
+	if(!isset($_GET['lookup']))
+		include 'cpsInclude/navbar.inc';
 ?>
